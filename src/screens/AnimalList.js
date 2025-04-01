@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import { Text } from '@rneui/themed';
-import AnimalCard from './components/AnimalCard'
+import AnimalCard from '../components/AnimalCard'
 
 export default function AnimalList({ route, language }) {
     const { category } = route.params;
@@ -24,7 +24,7 @@ export default function AnimalList({ route, language }) {
         data={category.animals}
         keyExtractor={(item) => item.name_en}
         renderItem={({ item }) => (
-            <AnimalCard animals={item} language={language} />
+            <AnimalCard animal={item} language={language} />
         )}
         />
         </View>

@@ -8,12 +8,6 @@ export default function AnimalCard({ animal, language }) {
         const { sound } = await Audio.Sound.createAsync(animal.sound);
         await sound.playAsync();
     };
-    // 소리 끝난 뒤 메모리에서 제거
-    sound.setOnPlaybackStatusUpdate((status) => {
-        if (status.didJustFinish) {
-        sound.unloadAsync();
-        }
-    });
     
     return (
         <Card containerStyle={{ borderRadius: 15 }}>
