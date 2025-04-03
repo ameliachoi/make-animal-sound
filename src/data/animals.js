@@ -3,7 +3,7 @@ export const animalCategories = [
       id: 'mammals',
       category_ko: '포유류',
       category_en: 'Mammals',
-      color: '#F4A261',
+      color: '#473188',
       animals: [
         {
           name_ko: '사자',
@@ -23,7 +23,7 @@ export const animalCategories = [
       id: 'birds',
       category_ko: '조류',
       category_en: 'Birds',
-      color: '#2A9D8F',
+      color: '#DC488A',
       animals: [
         {
           name_ko: '참새',
@@ -37,7 +37,7 @@ export const animalCategories = [
       id: 'reptiles',
       category_ko: '파충류',
       category_en: 'Reptiles',
-      color: '#E76F51',
+      color: '#F8A523',
       animals: [
         {
           name_ko: '도마뱀',
@@ -51,7 +51,7 @@ export const animalCategories = [
       id: 'amphibians',
       category_ko: '양서류',
       category_en: 'Amphibians',
-      color: '#264653',
+      color: '#ECD707',
       animals: [
         {
           name_ko: '개구리',
@@ -65,7 +65,7 @@ export const animalCategories = [
       id: 'fish',
       category_ko: '어류',
       category_en: 'Fish',
-      color: '#3D348B',
+      color: '#129D00',
       animals: [
         {
           name_ko: '금붕어',
@@ -79,7 +79,7 @@ export const animalCategories = [
       id: 'invertebrates',
       category_ko: '무척추동물',
       category_en: 'Invertebrates',
-      color: '#E9C46A',
+      color: '#1B6DA9',
       animals: [
         {
           name_ko: '달팽이',
