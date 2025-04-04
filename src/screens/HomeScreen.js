@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import { View, FlatList, Text, Switch, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { View, FlatList, Text, Switch, TouchableOpacity, Image, Dimensions, StyleSheet } from 'react-native';
 import { animalCategories } from '../data/animals';
 
 
@@ -32,28 +32,48 @@ export default function HomeScreen({ navigation, language, setLanguage }) {
     // choose category
     const renderItem = ({ item }) => (
         <TouchableOpacity
-            style = {{
-                width: ITEM_SIZE,
-                height: ITEM_SIZE,
-                margin: ITEM_MARGIN / 2, // half margin for both sides
-                marginVertical: ITEM_MARGIN,
-                backgroundColor: item.color,
-                borderRadius: 10,   
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}
+            style = {styles(item).box_item}
             onPress={() => navigation.navigate('AnimalList', { category: item, language })}
         >
-            <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', textAlign: 'center', fontFamily: language === 'ko' ? 'BMJUA' : 'NUNITO' }}> 
+            <Text style={styles(item).itemText}> 
                 {language === 'ko' ? item.category_ko : item.category_en}
             </Text>
         </TouchableOpacity>
     );
 
+    const styles = (item) => StyleSheet.create({
+        container: {
+            flex: 1,
+            padding: 20,
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        box_item: {
+            width: '48%',
+            height: ITEM_SIZE,
+            margin: ITEM_MARGIN / 2, // half margin for both sides
+            marginVertical: ITEM_MARGIN,
+            backgroundColor: item.color,
+            borderRadius: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        itemText: {
+            color: 'white',
+            fontSize: 20,
+            fontWeight: 'bold',
+            textAlign: 'center',
+            fontFamily: language === 'ko' ? 'BMJUA' : 'NUNITO'
+        }
+    })
+
     return (
         <View style={{ flex: 1, padding: 20 , alignItems: 'center', justifyContent: 'center'}}>
             <Text sytle ={{ fontSize: 25, textAlign: 'center', marginBottom: 20 }}>
                 {language === 'ko' ? '카테고리를 선택하세요' : 'Choose a category' }
+            </Text>
+            <Text style={{ fontSize: 12, marginVertical: 10 }}>
+                {language === 'ko' ? '카테고리를 선택하면 동물 소리를 들을 수 있어요!' : 'Choose a category to hear animal sounds!'}
             </Text>
             <FlatList
                 data={animalCategories}

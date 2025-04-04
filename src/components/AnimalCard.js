@@ -3,10 +3,22 @@ import { Image } from "react-native";
 import { Card, Button } from '@rneui/themed';
 import { Audio } from 'expo-av';
 
+
+
 export default function AnimalCard({ animal, language }) {
+    const [sound, setSound] = React.useState();
+
     const playSound = async () => {
-        const { sound } = await Audio.Sound.createAsync(animal.sound);
-        await sound.playAsync();
+
+        if (sound) {
+            await sound.unloadAsync();
+        }
+        // Load the sound
+        // const sound = new Audio.Sound();
+        const { sound: newSound } = await Audio.Sound.createAsync(animal.sound);
+        setSound(newSound);
+        // Play the sound
+        await newSound.playAsync();
     };
     
     return (
